@@ -16,3 +16,10 @@
 - Added scripts/check-direct-toolchain.sh to exercise supplied extracted JDK, AAPT2, D8, zipalign, apksigner and Android API JAR, validate DEX checksums and sign/verify a disposable local test APK. Script has not been executed; no production signing key is generated or committed.
 - Container execution repeatedly returned ClientError, including a minimal pwd call. Therefore no filesystem inspection, build-tool extraction, compilation, app rendering, or Android live testing could be performed. No production APK exists. Do not report a successful build.
 - GitHub-only changes are on main. No LFS, Gradle, SDK installation, paid actions, hosted build, provider credentials, or private conversation data used.
+
+## 2026-11-24 — Environment recovered; connection diagnostic built
+- User reattached build archives. Container accessible; existing platform-36_r02.zip also present. Extracted supplied tools only; no new SDK installation.
+- Actual direct compilation, D8 verification, APK linking, alignment and signing passed. ADB has no attached device.
+- Added separate native connection diagnostic under probes/connection, with eight provider entries and two process-isolated persistent profile candidates. It does not extract chats or claim provider support. Compiled and verified APK delivered in conversation; production APK not built.
+- Source Git blob identities match the compiled local files. Build results and limitations recorded in docs/CONNECTION_PROBE_VERIFICATION.md. Initial javac encoding failure resolved with UTF-8; deprecated API warnings remain.
+- Next gate is actual device launch, provider sign-in and profile isolation. All approved production features remain in scope; production icon and signing remain undecided. No LFS, Gradle, SDK installation, paid Actions or hosted builds.
