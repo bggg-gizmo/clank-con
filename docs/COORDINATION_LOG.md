@@ -49,3 +49,6 @@
 
 ## README presentation update
 - Applied professional section headings, 18 Shields.io badges, native Mermaid application and build flowcharts, and linked repository structure directly to main. Removed redundant checklist presentation; authoritative requirements and acceptance documentation remain intact. Closed superseded documentation PR. No application changes or CI execution.
+
+## Sponsorship documentation
+- Added optional Monero support to the README and a dedicated support page, with a repository-hosted custom funding URL. Regenerated the supplied QR as a scalable vector; the encoded payment URI matches the original, and the committed SVG blob hash matches the locally scanned SVG. No payment processing, application changes or CI execution.

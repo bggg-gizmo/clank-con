@@ -19,6 +19,8 @@
 [![Device acceptance pending](https://img.shields.io/badge/DEVICE%20TESTS-PENDING-e3b341?style=flat-square&labelColor=07110b)](docs/RELEASE_ACCEPTANCE.md)
 [![Live history retrieval pending](https://img.shields.io/badge/LIVE%20HISTORY-PENDING-e3b341?style=flat-square&labelColor=07110b)](#provider-compatibility)
 
+[![Support development with Monero](https://img.shields.io/badge/SUPPORT-MONERO%20XMR-ff6600?style=for-the-badge&logo=monero&logoColor=ff6600&labelColor=07110b)](docs/support.md)
+
 <!-- Capabilities -->
 [![Eight provider targets](https://img.shields.io/badge/PROVIDER%20TARGETS-08-88ffae?style=flat-square&labelColor=07110b)](#provider-compatibility)
 [![Seven export formats](https://img.shields.io/badge/EXPORT%20FORMATS-07-88ffae?style=flat-square&labelColor=07110b)](#features)
@@ -34,7 +36,7 @@
 
 <sub>Build badges refer to the recorded v0.1.1 verification; repository statistics update via Shields.io.</sub>
 
-[Features](#features) · [Compatibility](#provider-compatibility) · [How to use](#application-workflow) · [Build](#build-from-source) · [Audit](#repository-structure) · [License](#license)
+[Features](#features) · [Compatibility](#provider-compatibility) · [How to use](#application-workflow) · [Build](#build-from-source) · [Audit](#repository-structure) · [License](#license) · [Support](#support-clank-con)
 
 **A Background Gremlin Group project**
 
@@ -277,6 +279,22 @@ The current implementation and pending work are documented in [Project requireme
 ## Contributing
 
 Contributions are welcome. Use synthetic fixtures, preserve existing functionality, document verification and never include credentials or private conversation data. The project uses direct Android builds without Gradle, Git LFS or paid GitHub Actions.
+
+## Support Clank-Con
+
+Optional Monero (XMR) donations support development, testing and maintenance.
+
+<p align="center">
+  <img src="docs/assets/monero-sponsor-qr.svg" alt="Clank-Con Monero donation QR code" width="240">
+</p>
+
+**Monero receiving address**
+
+```text
+82uPeBbNAa6JYmeTpFtSdLXsbGnvQozcKDyHRnwE4QrARk1LYvMHLXcebQATVNNA1ZJj3eAeTsdx4aVpmxLonYQqCVNx6WL
+```
+
+Scan using a Monero wallet or copy the address. Verify the receiving address before sending. [Donation information](docs/support.md).
 
 ## License
 
