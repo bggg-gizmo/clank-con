@@ -14,4 +14,4 @@ User-approved scope recorded 2026-11-24. Read PROJECT_REQUIREMENTS.md and docs/C
 - Verify provider-specific retrieval before declaring support. Full history and branches are target requirements, not claims about existing access.
 
 ## Handoff
-Authentication architecture and icon are not yet approved. Do not finalize either without user approval. Build-tool archives are named in project context but were not inspected because the execution environment returned ClientError.
+User approved robot-taking-notes production icon. Direct build toolchain has been verified and v0.1.0 built. User performs physical-device testing. Native WebView and external-browser workflows are implemented, but external sign-in remains external; full provider live authentication and retrieval architecture is not validated. Read docs/V0.1.0_VERIFICATION.md and app/README.md for current acceptance gates.
