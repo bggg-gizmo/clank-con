@@ -28,7 +28,7 @@ with zipfile.ZipFile(p/'unsigned.apk','a',compression=zipfile.ZIP_DEFLATED) as z
         z.write(d,d.name);print(d.name,len(b),'DEX integrity PASS')
 PY
 for d in "$O/dex"/classes*.dex; do "$B/dexdump" "$d"; done > "$O/dexdump.txt"
-for c in MainActivity Vault Framed Exports Backup; do grep -Fq "Lgroup/backgroundgremlin/clankcon/$c;" "$O/dexdump.txt"; done
+for c in MainActivity Vault Framed Exports Backup Transcript; do grep -Fq "Lgroup/backgroundgremlin/clankcon/$c;" "$O/dexdump.txt"; done
 "$B/zipalign" -f 4 "$O/unsigned.apk" "$O/aligned.apk"
 "$B/apksigner" sign --ks "$KEY" --ks-key-alias "$ALIAS" --ks-pass env:CLANK_KEYSTORE_PASS --key-pass env:CLANK_KEY_PASS --out "$O/signed.apk" "$O/aligned.apk"
 "$B/zipalign" -c 4 "$O/signed.apk"
