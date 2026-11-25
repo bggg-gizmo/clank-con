@@ -46,3 +46,6 @@
 
 ## 2026-11-25 — README and MIT licensing
 - User requested a redesigned README and full MIT open-source license. Added root README with original CRT banner adapted from project robot icon, feature matrix, accurate current limits, workflows, direct build instructions, verification, roadmap and source links. Added unmodified MIT license text naming Background Gremlin Group (2026). Repository visibility remains private; no public release or visibility change authorized. Existing technical README and application code unchanged. User reported later passkey option was not offered; live authentication still pending. No builds or paid actions performed.
+
+## README presentation update
+- Applied professional section headings, 18 Shields.io badges, native Mermaid application and build flowcharts, and linked repository structure directly to main. Removed redundant checklist presentation; authoritative requirements and acceptance documentation remain intact. Closed superseded documentation PR. No application changes or CI execution.
