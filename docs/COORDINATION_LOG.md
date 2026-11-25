@@ -23,3 +23,7 @@
 - Added separate native connection diagnostic under probes/connection, with eight provider entries and two process-isolated persistent profile candidates. It does not extract chats or claim provider support. Compiled and verified APK delivered in conversation; production APK not built.
 - Source Git blob identities match the compiled local files. Build results and limitations recorded in docs/CONNECTION_PROBE_VERIFICATION.md. Initial javac encoding failure resolved with UTF-8; deprecated API warnings remain.
 - Next gate is actual device launch, provider sign-in and profile isolation. All approved production features remain in scope; production icon and signing remain undecided. No LFS, Gradle, SDK installation, paid Actions or hosted builds.
+
+## 2026-11-24 — DuckDuckGo source review
+- User handles physical-device tests and prefers avoiding manual password entry. Reviewed upstream browser popup lifecycle, cookie compatibility, system autofill and WebAuthn eligibility directly. Findings and source references in docs/DUCKDUCKGO_BROWSER_REVIEW.md.
+- Existing DuckDuckGo session cannot be transferred to Clank-Con; external browser access and system autofill remain candidates with explicit limits. Keep existing diagnostic unchanged during test; no new build or provider acceptance claim.
