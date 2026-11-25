@@ -39,3 +39,7 @@
 
 ## 2026-11-25 — Passkey device evidence and release acceptance
 - User clarified that successful ChatGPT login in DuckDuckGo used a passkey. External passkey login verified by user report only; no in-app session or live retrieval. Reviewed Android official WebAuthn/Credential Manager origin and privileged caller requirements. Added docs/RELEASE_ACCEPTANCE.md to record authentication, retrieval, export, vault, upgrade and direct-build gates. No new APK or application code change; all scope retained.
+
+## 2026-11-25 — Exporter review and v0.1.1
+- User directed actual source review and implementation. Inspected AIExporter, ACE, thekester/chatgpt-export, ThierryAbalea/chatgpt-conversation-export and yanglinfang parser code/manifests, plus ChatSave and ChatGPT Helper documentation. See docs/V0.1.1_EXPORTER_REVIEW.md for file identities and mechanisms.
+- Implemented ACE v1 and AI Exporter-compatible offline transcript recognition/rendering with ordered content and source metadata, original JSON preserved. Seven source/build files byte-verified and committed in 220a2e130a110dfe7962be43093b21d1feec3862. Built v0.1.1 with same package, signer and existing icon/vault. 20 host tests passed; static APK/DEX verification passed. Device acceptance pending. Live provider account capture not implemented; no credential handling or browser-session transfer. Existing requirements retained; no Gradle, SDK install, LFS or paid Actions.
