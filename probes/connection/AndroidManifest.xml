@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="group.backgroundgremlin.clankcon.probe" android:versionCode="1" android:versionName="0.0.1-probe">
+    <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="36"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application android:name=".ProbeApplication" android:label="Clank-Con Connection Test" android:allowBackup="false" android:usesCleartextTraffic="false" android:theme="@android:style/Theme.Material.NoActionBar">
+        <activity android:name=".ProbeActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+        <activity android:name=".ProbeActivity$BrowserA" android:process=":profile_a" android:exported="false"/>
+        <activity android:name=".ProbeActivity$BrowserB" android:process=":profile_b" android:exported="false"/>
+    </application>
+</manifest>
