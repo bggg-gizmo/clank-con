@@ -1,0 +1,13 @@
+PASS: multi-frame byte-for-byte round trip
+PASS: empty authenticated stream
+PASS: randomized ciphertext
+PASS: ciphertext tamper rejection
+PASS: wrong key rejection
+PASS: record identity substitution rejection
+PASS: missing end marker rejection
+PASS: trailing bytes rejection
+PASS: frame reorder rejection
+PASS: streamed graph object source preservation with Unicode and escapes
+PASS: empty graph export
+PASS: truncated array rejection
+PASS: explicit per-object limit rejection

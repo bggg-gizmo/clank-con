@@ -1,0 +1,12 @@
+package group.backgroundgremlin.clankcon;
+import org.json.*;
+import java.util.*;
+import java.io.IOException;
+
+final class Graph {
+    final JSONObject source,mapping;final String current;final List<String> ends=new ArrayList<>();
+    Graph(String text)throws Exception {source=new JSONObject(text);mapping=source.optJSONObject("mapping");if(mapping==null)throw new IOException("No supplied conversation graph in this record");current=source.optString("current_node","");if(!current.isEmpty()&&mapping.has(current))ends.add(current);Iterator<String> keys=mapping.keys();while(keys.hasNext()){String id=keys.next();JSONObject node=mapping.optJSONObject(id);if(node==null)continue;JSONArray children=node.optJSONArray("children");if(children!=null&&children.length()==0&&!ends.contains(id))ends.add(id);}if(ends.isEmpty())throw new IOException("No explicit branch endpoints in source graph");}
+    List<JSONObject> path(String end)throws Exception{ArrayList<JSONObject> path=new ArrayList<>();HashSet<String> seen=new HashSet<>();String id=end;while(id!=null&&!id.isEmpty()){if(!seen.add(id))throw new IOException("Cycle in supplied parent graph");JSONObject n=mapping.optJSONObject(id);if(n==null)throw new IOException("Missing supplied parent node: "+id);path.add(n);Object parent=n.opt("parent");if(parent==null||parent==JSONObject.NULL)break;if(!(parent instanceof String))throw new IOException("Invalid parent node reference");id=(String)parent;}Collections.reverse(path);return path;}
+    String render(String end)throws Exception{StringBuilder out=new StringBuilder("Branch endpoint: "+end+"\n");for(JSONObject node:path(end)){JSONObject m=node.optJSONObject("message");if(m==null)continue;JSONObject a=m.optJSONObject("author"),c=m.optJSONObject("content");out.append("\n").append(a==null?"unknown":a.optString("role","unknown")).append(" | ").append(m.opt("create_time")).append("\n");JSONArray parts=c==null?null:c.optJSONArray("parts");if(parts!=null){for(int j=0;j<parts.length();j++)out.append(parts.opt(j)).append('\n');}else out.append(m.opt("content")).append('\n');}return out.toString();}
+    JSONObject branch(String end)throws Exception{JSONObject m=new JSONObject();m.put("schema","clank-con-derived-branch-1");m.put("title",source.optString("title","Conversation"));m.put("provider_conversation_id",source.optString("id",source.optString("conversation_id","")));m.put("branch_end",end);JSONArray nodes=new JSONArray();for(JSONObject node:path(end))nodes.put(node);m.put("nodes",nodes);m.put("text",render(end));return m;}
+}

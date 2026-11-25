@@ -1,0 +1,45 @@
+classes.dex 108420 DEX integrity PASS
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): false
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=Clank-Con Development
+Signer #1 certificate SHA-256 digest: 3263b140e2e10538933f6a750317f2ef7079b9a40b4b717cd401ea40a16babf1
+Signer #1 certificate SHA-1 digest: f0a3089d6c6639348c5fb7dda9b3765c5145a3ac
+Signer #1 certificate MD5 digest: 907f1fca40479e1c1f924b3870d43fe4
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 3072
+Signer #1 public key SHA-256 digest: a713f7cf9698c7ad15aac4b671e00992b6f589a56f9ce3cd9d85760b423dc812
+Signer #1 public key SHA-1 digest: e7886e39f10704a1cfdbea7faa41d08b4b229a6f
+Signer #1 public key MD5 digest: be0ce20a8185b180208bada4287c4def
+package: name='group.backgroundgremlin.clankcon' versionCode='1' versionName='0.1.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+minSdkVersion:'28'
+targetSdkVersion:'36'
+uses-permission: name='android.permission.INTERNET'
+application-label:'Clank-Con'
+application-icon-160:'res/drawable/ic_robot.xml'
+application: label='Clank-Con' icon='res/drawable/ic_robot.xml'
+launchable-activity: name='group.backgroundgremlin.clankcon.MainActivity'  label='' icon=''
+feature-group: label=''
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+main
+other-activities
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--'
+densities: '160'
+Archive:  /tmp/tmp.pwpoyhR6WS/signed.apk
+    testing: AndroidManifest.xml      OK
+    testing: res/drawable/ic_robot.xml   OK
+    testing: resources.arsc           OK
+    testing: classes.dex              OK
+    testing: META-INF/DEVELOPM.SF     OK
+    testing: META-INF/DEVELOPM.RSA    OK
+    testing: META-INF/MANIFEST.MF     OK
+No errors detected in compressed data of /tmp/tmp.pwpoyhR6WS/signed.apk.
+f25d4aa48837fe6202669ed1d0f6fc37c7afe38fb9bc1c4ded40a91d71c29640  /mnt/data/Clank-Con-v0.1.0.apk
