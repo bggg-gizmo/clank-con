@@ -6,9 +6,35 @@
 
 **Pull chats from clanks. Keep the originals. Own your archive.**
 
-`ANDROID 9+` · `JAVA 17 TOOLCHAIN` · `MIT LICENSE` · `LOCAL FIRST`
+<!-- Platform and project identity -->
+[![MIT license](https://img.shields.io/github/license/bggg-gizmo/clank-con?style=for-the-badge&label=LICENSE&color=39d353&labelColor=07110b)](LICENSE)
+[![Android 9+](https://img.shields.io/badge/ANDROID-9%2B%20%7C%20API%2028-3ddc84?style=for-the-badge&logo=android&logoColor=88ffae&labelColor=07110b)](app/AndroidManifest.xml)
+[![Java 17 toolchain](https://img.shields.io/badge/JAVA-17%20TOOLCHAIN-88ffae?style=for-the-badge&logo=openjdk&logoColor=88ffae&labelColor=07110b)](app/build.sh)
+[![Local first](https://img.shields.io/badge/ARCHIVE-LOCAL%20FIRST-39d353?style=for-the-badge&labelColor=07110b&logo=files&logoColor=88ffae)](#privacy-and-integrity)
 
-[Features](#01--the-arsenal) · [Compatibility](#02--provider-matrix) · [How to use](#03--operator-workflow) · [Build](#05--build-it-yourself) · [Audit](#06--inspect-everything) · [License](#08--license)
+<!-- Recorded build evidence, not live CI -->
+[![Device-test build 0.1.1](https://img.shields.io/badge/BUILD-v0.1.1%20TEST-88ffae?style=flat-square&labelColor=07110b)](docs/V0.1.1_EXPORTER_REVIEW.md)
+[![Recorded host tests 20 of 20](https://img.shields.io/badge/HOST%20TESTS-20%2F20%20PASS-39d353?style=flat-square&labelColor=07110b)](docs/V0.1.1_EXPORTER_REVIEW.md)
+[![DEX and APK verified](https://img.shields.io/badge/DEX%20%2F%20APK-VERIFIED-39d353?style=flat-square&labelColor=07110b)](docs/V0.1.1_EXPORTER_REVIEW.md)
+[![Device acceptance pending](https://img.shields.io/badge/DEVICE%20TESTS-PENDING-e3b341?style=flat-square&labelColor=07110b)](docs/RELEASE_ACCEPTANCE.md)
+[![Live history retrieval pending](https://img.shields.io/badge/LIVE%20HISTORY-PENDING-e3b341?style=flat-square&labelColor=07110b)](#provider-compatibility)
+
+<!-- Capabilities -->
+[![Eight provider targets](https://img.shields.io/badge/PROVIDER%20TARGETS-08-88ffae?style=flat-square&labelColor=07110b)](#provider-compatibility)
+[![Seven export formats](https://img.shields.io/badge/EXPORT%20FORMATS-07-88ffae?style=flat-square&labelColor=07110b)](#features)
+[![AES-256-GCM vault](https://img.shields.io/badge/VAULT-AES--256--GCM-39d353?style=flat-square&labelColor=07110b)](#privacy-and-integrity)
+[![No Gradle](https://img.shields.io/badge/BUILD-NO%20GRADLE-88ffae?style=flat-square&labelColor=07110b)](#build-from-source)
+
+<!-- Live repository statistics -->
+[![GitHub stars](https://img.shields.io/github/stars/bggg-gizmo/clank-con?style=flat-square&logo=github&logoColor=88ffae&color=88ffae&labelColor=07110b)](https://github.com/bggg-gizmo/clank-con/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/bggg-gizmo/clank-con?style=flat-square&logo=github&logoColor=88ffae&color=88ffae&labelColor=07110b)](https://github.com/bggg-gizmo/clank-con/forks)
+[![Open issues](https://img.shields.io/github/issues/bggg-gizmo/clank-con?style=flat-square&color=88ffae&labelColor=07110b)](https://github.com/bggg-gizmo/clank-con/issues)
+[![Last commit](https://img.shields.io/github/last-commit/bggg-gizmo/clank-con/main?style=flat-square&color=88ffae&labelColor=07110b)](https://github.com/bggg-gizmo/clank-con/commits/main/)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/bggg-gizmo/clank-con?style=flat-square&color=88ffae&labelColor=07110b)](https://github.com/bggg-gizmo/clank-con/pulls)
+
+<sub>Build badges refer to the recorded v0.1.1 verification; repository statistics update via Shields.io.</sub>
+
+[Features](#features) · [Compatibility](#provider-compatibility) · [How to use](#application-workflow) · [Build](#build-from-source) · [Audit](#repository-structure) · [License](#license)
 
 **A Background Gremlin Group project**
 
@@ -38,7 +64,7 @@ The current build is a working-code archival implementation under device testing
 
 [Read the v0.1.1 verification report](docs/V0.1.1_EXPORTER_REVIEW.md) · [Release acceptance gates](docs/RELEASE_ACCEPTANCE.md)
 
-## 01 / The arsenal
+## Features
 
 | Module | Function |
 | :--- | :--- |
@@ -63,7 +89,7 @@ The current build is a working-code archival implementation under device testing
 
 JSON and ZIP preserve original bytes. Other formats render supplied text and metadata; binary assets are not embedded by those writers. Actual Android rendering and interoperability still require device tests. Ordinary exports are plaintext; use the encrypted backup function for protected portability.
 
-## 02 / Provider matrix
+## Provider compatibility
 
 Every provider below is a project target and has an official-site browser entry. All support generic, user-supplied file or text import. Structured formats from compatible exporters can be recognized independently of the chosen provider.
 
@@ -87,23 +113,31 @@ Every provider below is a project target and has an official-site browser entry.
 
 The provider label is not a verified account identity. No format is assumed to contain every server-side message, attachment, branch or project.
 
-## 03 / Operator workflow
+## Application workflow
 
-```text
-   [ SOURCE / SHARE / FILE PICKER ]
-                  |
-                  v
-          [ IMPORT ORIGINAL ]
-                  |
-                  v
-       [ REVIEW + SELECT RECORDS ]
-             /          \
-            v            v
-    [ LOCAL VAULT ]   [ DIRECT EXPORT ]
-         |     |             |
-         |     +-------------+
-         v                   v
- [ ENCRYPTED BACKUP ]   [ 7 FILE FORMATS ]
+```mermaid
+flowchart TD
+    A["Android share / selected text"] --> D["Import supplied content"]
+    B["File picker / archive"] --> D
+    C["Provider browser"] --> A
+    D --> E["Preserve originals and metadata"]
+    E --> F{"Storage mode"}
+    F -->|Encrypted vault| G["Local vault"]
+    F -->|Direct export| H["Encrypted temporary staging"]
+    G --> I["Search, review and select records"]
+    H --> J["Select export format"]
+    I --> J
+    G --> K["Encrypted backup / restore"]
+    J --> L["Android destination picker"]
+    L --> M["TXT / PDF / JSON / MD / HTML / DOCX / ZIP"]
+    classDef source fill:#122d20,stroke:#62c78a,color:#e3ffec
+    classDef process fill:#173f2b,stroke:#88ffae,color:#e3ffec
+    classDef decision fill:#303629,stroke:#d5b76c,color:#fff5db
+    classDef output fill:#0d2418,stroke:#88ffae,color:#e3ffec
+    class A,B,C source
+    class D,E,G,H,I,J,L process
+    class F decision
+    class K,M output
 ```
 
 1. Choose a provider or import an existing conversation file.
@@ -114,7 +148,7 @@ The provider label is not a verified account identity. No format is assumed to c
 
 Built-in browser login is separate from external browser login. DuckDuckGo retains its own session; Clank-Con cannot inherit it. External ChatGPT sign-in via passkey was observed in earlier device testing, but the option was not offered in a subsequent test. Independent passkey compatibility and live account retrieval remain unresolved.
 
-## 04 / Privacy and integrity
+## Privacy and integrity
 
 | Layer | Implementation |
 | :--- | :--- |
@@ -132,25 +166,43 @@ Known limits: content search and rendering are capped at 16 MiB per original, wi
 
 See [technical documentation](app/README.md) and [verification notes](docs/V0.1.0_VERIFICATION.md) before relying on the application as your only backup.
 
-## 05 / Build it yourself
+## Build from source
 
-**One native APK. Real DEX. No Gradle.**
+The application is compiled and signed directly with the supplied Android build tools, without Gradle.
 
-```text
-  ANDROID RESOURCES --------> AAPT2 -----> BINARY RESOURCES
-                                              |
-  JAVA SOURCE ----> JAVAC ----> D8 -----> classes.dex
-                                              |
-                                              v
-                              PACKAGE -> ZIPALIGN -> APKSIGNER
-                                              |
-                                              v
-                                 VERIFIED SIGNED APK
+```mermaid
+flowchart TD
+    A["Android resources"] --> B["AAPT2 compile"]
+    B --> C["AAPT2 link"]
+    M["AndroidManifest.xml"] --> C
+    P["API 36 android.jar"] --> C
+    C --> R["Generated R.java"]
+    S["Java source"] --> J["javac"]
+    R --> J
+    P --> J
+    J --> K["Compiled classes / JAR"]
+    K --> D["D8"]
+    P --> D
+    D --> E["DEX integrity verification"]
+    C --> F["Resource APK"]
+    E --> G["Package all classes.dex files"]
+    F --> G
+    G --> H["ZIPALIGN"]
+    H --> I["APKSIGNER"]
+    N["Local signing keystore"] --> I
+    I --> V["Verify signature, alignment, ZIP, manifest and SHA-256"]
+    V --> O["Signed Android APK"]
+    classDef source fill:#122d20,stroke:#62c78a,color:#e3ffec
+    classDef process fill:#173f2b,stroke:#88ffae,color:#e3ffec
+    classDef output fill:#0d2418,stroke:#88ffae,color:#e3ffec
+    class A,M,P,S,N source
+    class B,C,R,J,K,D,E,F,G,H,I,V process
+    class O output
 ```
 
 Requirements: an existing extracted JDK 17, Android build-tools r36, an API 36 `android.jar`, Bash, Python 3, ZIP utilities and a locally controlled signing keystore. No SDK installation is performed by the build scripts. The existing tools are supplied separately; they are not redistributed in this repository.
 
-Clone this repository using an account with access:
+Clone the public repository:
 
 ```bash
 git clone https://github.com/bggg-gizmo/clank-con.git
@@ -189,26 +241,21 @@ HOST TESTS: 20 / 20 PASS
 
 No APK release asset is currently published in this repository. Build from source or obtain the separately distributed test build through the project owner, and verify its hash.
 
-## 06 / Inspect everything
+## Repository structure
 
-```text
-clank-con/
-├── app/                       Native application
-│   ├── src/                   Java source
-│   ├── res/                   Android resources and robot icon
-│   ├── tests/                 Host-side regression tests
-│   ├── AndroidManifest.xml
-│   ├── build.sh
-│   └── test-host.sh
-├── probes/                    Preserved connection diagnostics
-├── scripts/                   Direct toolchain verification
-├── verification/              Recorded build/test logs
-├── docs/                      Research, acceptance and handoff
-├── AGENTS.md                  Engineering contract
-├── PROJECT_REQUIREMENTS.md    Complete approved scope
-├── README.md
-└── LICENSE
-```
+| Path | Contents |
+| :--- | :--- |
+| [app/](app/) | Native application, Android manifest and build scripts |
+| [app/src/](app/src/) | Java source |
+| [app/res/](app/res/) | Android resources and launcher icon |
+| [app/tests/](app/tests/) | Host-side regression tests |
+| [probes/](probes/) | Connection diagnostics |
+| [scripts/](scripts/) | Direct toolchain verification |
+| [verification/](verification/) | Build and test records |
+| [docs/](docs/) | Research, acceptance and development documentation |
+| [AGENTS.md](AGENTS.md) | Engineering contract |
+| [PROJECT_REQUIREMENTS.md](PROJECT_REQUIREMENTS.md) | Approved project scope |
+| [LICENSE](LICENSE) | MIT license |
 
 | Read | Why |
 | :--- | :--- |
@@ -223,33 +270,15 @@ clank-con/
 
 No code from the inspected upstream exporters or DuckDuckGo was incorporated. Their implementations and formats informed the research; Clank-Con's implementation is independently authored. Upstream projects and Android build tools retain their respective licenses.
 
-## 07 / Mission checklist
+## Development status
 
-- [x] Standalone native Android APK and direct DEX build
-- [x] Retro CRT workflow and robot-taking-notes launcher icon
-- [x] Eight provider entry points
-- [x] Two persistent browser profile candidates
-- [x] Individual and multiple supplied conversation imports
-- [x] Encrypted searchable vault and direct exports
-- [x] Seven export writers
-- [x] Supplied ChatGPT graph and branch inspection
-- [x] ACE v1 and role/content JSON interoperability
-- [x] Supplied attachment and generated-image file preservation
-- [x] Portable encrypted backup and restore
-- [ ] Verified independent passkey sign-in and provider account identity
-- [ ] Temporary sessions and expanded account management
-- [ ] Live individual, selected and entire available history retrieval
-- [ ] Live archived and project conversation coverage
-- [ ] Live alternative response branches, attachments, generated images and metadata
-- [ ] Remaining native provider-specific archive parsers
-- [ ] Large-text processing, interrupted-restore hardening and complete device acceptance
-- [ ] User-owned production signing continuity
+The current implementation and pending work are documented in [Project requirements](PROJECT_REQUIREMENTS.md), [Release acceptance](docs/RELEASE_ACCEPTANCE.md), and the [v0.1.1 verification report](docs/V0.1.1_EXPORTER_REVIEW.md). Live provider retrieval, authentication compatibility, and full device acceptance remain outstanding.
 
-Checked boxes mean implemented, not universally device-tested. Nothing on the outstanding list is being silently dropped.
+## Contributing
 
-Contributions are welcome when repository access is available. Use synthetic fixtures, preserve existing features, document verification and never include credentials or private chat data. No paid Actions, Git LFS or Gradle.
+Contributions are welcome. Use synthetic fixtures, preserve existing functionality, document verification and never include credentials or private conversation data. The project uses direct Android builds without Gradle, Git LFS or paid GitHub Actions.
 
-## 08 / License
+## License
 
 **MIT — Copyright (c) 2026 Background Gremlin Group.**
 
@@ -262,8 +291,6 @@ Clank-Con is an independent project, not affiliated with any of the listed AI pr
 <div align="center">
 
 **BACKGROUND GREMLIN GROUP**
-
-`> END OF TRANSMISSION_`
 
 *Your conversations. Your archives. Your device.*
 
