@@ -8,3 +8,11 @@
 - Build archives known by name: OpenJDK17U-jdk_x64_linux_hotspot_17.0.20.1_1.tar.gz, build-tools_r36_linux.zip, platform-36_r02.zip, platform-tools-latest-linux.zip. Container listing attempt returned ClientError; contents, checksums, tool execution and device availability unverified.
 - Next: user authentication and icon decision; confirm tool availability; establish provider capability matrix and safe live capture acceptance; implement and test native vault and exports; direct APK build, actual UI review and release verification.
 - No GitHub Actions, hosted build minutes or LFS used. No private chat content or credentials added.
+
+## 2026-11-24 — Authentication research and toolchain verification preparation
+- User clarified native Android app usage and successful ChatGPT browsing through DuckDuckGo Android. Login method remains unspecified; user directed work to continue rather than repeat questions.
+- Read existing engineering contract and requirements. All eight providers, all formats, full retrieval goals, storage modes and CRT workflow remain intact.
+- Added docs/AUTHENTICATION_RESEARCH.md with sources, provider matrix, session isolation, WebView-first investigation, GeckoView alternative, and explicit live acceptance protocol. This is a candidate selection, not a validated login implementation.
+- Added scripts/check-direct-toolchain.sh to exercise supplied extracted JDK, AAPT2, D8, zipalign, apksigner and Android API JAR, validate DEX checksums and sign/verify a disposable local test APK. Script has not been executed; no production signing key is generated or committed.
+- Container execution repeatedly returned ClientError, including a minimal pwd call. Therefore no filesystem inspection, build-tool extraction, compilation, app rendering, or Android live testing could be performed. No production APK exists. Do not report a successful build.
+- GitHub-only changes are on main. No LFS, Gradle, SDK installation, paid actions, hosted build, provider credentials, or private conversation data used.
