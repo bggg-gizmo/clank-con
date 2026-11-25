@@ -6,7 +6,33 @@
 
 **Pull chats from clanks. Keep the originals. Own your archive.**
 
-`ANDROID 9+` · `JAVA 17 TOOLCHAIN` · `MIT LICENSE` · `LOCAL FIRST`
+<!-- Platform and project identity -->
+[![MIT license](https://img.shields.io/github/license/bggg-gizmo/clank-con?style=for-the-badge&label=LICENSE&color=39d353&labelColor=07110b)](LICENSE)
+[![Android 9+](https://img.shields.io/badge/ANDROID-9%2B%20%7C%20API%2028-3ddc84?style=for-the-badge&logo=android&logoColor=88ffae&labelColor=07110b)](app/AndroidManifest.xml)
+[![Java 17 toolchain](https://img.shields.io/badge/JAVA-17%20TOOLCHAIN-88ffae?style=for-the-badge&logo=openjdk&logoColor=88ffae&labelColor=07110b)](app/build.sh)
+[![Local first](https://img.shields.io/badge/ARCHIVE-LOCAL%20FIRST-39d353?style=for-the-badge&labelColor=07110b&logo=files&logoColor=88ffae)](#04--privacy-and-integrity)
+
+<!-- Recorded build evidence, not live CI -->
+[![Device-test build 0.1.1](https://img.shields.io/badge/BUILD-v0.1.1%20TEST-88ffae?style=flat-square&labelColor=07110b)](docs/V0.1.1_EXPORTER_REVIEW.md)
+[![Recorded host tests 20 of 20](https://img.shields.io/badge/HOST%20TESTS-20%2F20%20PASS-39d353?style=flat-square&labelColor=07110b)](docs/V0.1.1_EXPORTER_REVIEW.md)
+[![DEX and APK verified](https://img.shields.io/badge/DEX%20%2F%20APK-VERIFIED-39d353?style=flat-square&labelColor=07110b)](docs/V0.1.1_EXPORTER_REVIEW.md)
+[![Device acceptance pending](https://img.shields.io/badge/DEVICE%20TESTS-PENDING-e3b341?style=flat-square&labelColor=07110b)](docs/RELEASE_ACCEPTANCE.md)
+[![Live history retrieval pending](https://img.shields.io/badge/LIVE%20HISTORY-PENDING-e3b341?style=flat-square&labelColor=07110b)](#02--provider-matrix)
+
+<!-- Capabilities -->
+[![Eight provider targets](https://img.shields.io/badge/PROVIDER%20TARGETS-08-88ffae?style=flat-square&labelColor=07110b)](#02--provider-matrix)
+[![Seven export formats](https://img.shields.io/badge/EXPORT%20FORMATS-07-88ffae?style=flat-square&labelColor=07110b)](#01--the-arsenal)
+[![AES-256-GCM vault](https://img.shields.io/badge/VAULT-AES--256--GCM-39d353?style=flat-square&labelColor=07110b)](#04--privacy-and-integrity)
+[![No Gradle](https://img.shields.io/badge/BUILD-NO%20GRADLE-88ffae?style=flat-square&labelColor=07110b)](#05--build-it-yourself)
+
+<!-- Live repository statistics -->
+[![GitHub stars](https://img.shields.io/github/stars/bggg-gizmo/clank-con?style=flat-square&logo=github&logoColor=88ffae&color=88ffae&labelColor=07110b)](https://github.com/bggg-gizmo/clank-con/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/bggg-gizmo/clank-con?style=flat-square&logo=github&logoColor=88ffae&color=88ffae&labelColor=07110b)](https://github.com/bggg-gizmo/clank-con/forks)
+[![Open issues](https://img.shields.io/github/issues/bggg-gizmo/clank-con?style=flat-square&color=88ffae&labelColor=07110b)](https://github.com/bggg-gizmo/clank-con/issues)
+[![Last commit](https://img.shields.io/github/last-commit/bggg-gizmo/clank-con/main?style=flat-square&color=88ffae&labelColor=07110b)](https://github.com/bggg-gizmo/clank-con/commits/main/)
+[![Main branch protected](https://img.shields.io/badge/MAIN-PROTECTED-39d353?style=flat-square&labelColor=07110b)](https://github.com/bggg-gizmo/clank-con/rules)
+
+<sub>Build badges refer to the recorded v0.1.1 verification; repository statistics update via Shields.io.</sub>
 
 [Features](#01--the-arsenal) · [Compatibility](#02--provider-matrix) · [How to use](#03--operator-workflow) · [Build](#05--build-it-yourself) · [Audit](#06--inspect-everything) · [License](#08--license)
 
