@@ -27,3 +27,7 @@
 ## 2026-11-24 — DuckDuckGo source review
 - User handles physical-device tests and prefers avoiding manual password entry. Reviewed upstream browser popup lifecycle, cookie compatibility, system autofill and WebAuthn eligibility directly. Findings and source references in docs/DUCKDUCKGO_BROWSER_REVIEW.md.
 - Existing DuckDuckGo session cannot be transferred to Clank-Con; external browser access and system autofill remain candidates with explicit limits. Keep existing diagnostic unchanged during test; no new build or provider acceptance claim.
+
+## Connection diagnostic v0.0.2
+- User authorized build following DuckDuckGo review. Added side-by-side native WebView diagnostic in probes/connection-v2; v1 retained. External DuckDuckGo launch, system autofill, popup stack, per-window cookie setting and error reporting implemented. Direct APK built and static verification passed; source blob identities match. See docs/CONNECTION_PROBE_V2_VERIFICATION.md.
+- User performs physical device tests; no device attached here. No provider acceptance, full retrieval or production release claim. APK delivered in conversation. All approved production scope unchanged. No Gradle, SDK installation, LFS or paid Actions.
