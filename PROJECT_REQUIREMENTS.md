@@ -7,7 +7,7 @@
 - Retrieval: individual conversations, selected conversations, entire available history, archived conversations, project conversations, alternative response branches, attachments, generated images, conversation metadata.
 - Storage: direct exports and an encrypted searchable local vault, with backup and restoration.
 - UI: retro terminal CRT. User-friendly robust page-based workflows, dropdowns and navigation rather than monolithic walls.
-- Authentication: undecided. Icon: undecided.
+- Authentication: independent native browser and external-browser workflow implemented as candidates; live retrieval not validated. Persistent and temporary sessions remain in scope. Icon: robot taking notes (approved and implemented).
 
 ## Functional and data contracts
 The goal is retrieval of existing personal conversations, not merely conversion of a previously downloaded account export. The app must preserve all available original content rather than summarize it. Preserve message order, roles, Unicode, code, formatting, IDs, timestamps, branching relationships and attachments where exposed. Preserve raw source records when available; never invent missing metadata. Distinguish visible thread, selected branch, complete branch graph and account history. Report missing content and failed retrieval explicitly. Provide local search, filters, duplicate detection, incremental imports/backups, export selection and integrity manifests. No provider may be marked complete without provider-specific acceptance evidence. No chat mutation or deletion on provider services.
@@ -29,3 +29,6 @@ References:
 
 ## Acceptance gates
 Verify supplied toolchain availability and integrity; build directly with javac/AAPT2/D8/zipalign/apksigner. Verify manifest, expected DEX classes, DEX integrity, resources, APK ZIP integrity, alignment, signature, SHA-256, installation and launch on supported Android. Test all formats, long conversations, Unicode, branches, metadata, attachment preservation, import completeness, duplicate handling, backup/restore, storage privacy and errors. Device and live-account tests must be separately labeled; synthetic fixtures alone are not provider acceptance.
+
+## Implementation status
+See docs/V0.1.0_VERIFICATION.md. All approved scope remains required; the v0.1.0 local archival implementation is a device-test release and not a provider-complete release.
