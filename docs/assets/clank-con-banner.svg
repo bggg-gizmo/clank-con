@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+<title id="title">Clank-Con — Background Gremlin Group</title>
+<desc id="desc">Green phosphor CRT terminal with a robot taking notes, and the motto Pull chats from clanks.</desc>
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#07150e"/><stop offset="1" stop-color="#020805"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#1e7943" stop-opacity=".22"/><stop offset="1" stop-color="#08120b" stop-opacity="0"/></radialGradient>
+ <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 3.5H4" stroke="#a4ffb9" stroke-opacity=".055"/></pattern>
+</defs>
+<rect x="1" y="1" width="1198" height="438" rx="24" fill="#030705" stroke="#31563d" stroke-width="2"/>
+<rect x="16" y="16" width="1168" height="408" rx="16" fill="url(#bg)" stroke="#183f28"/>
+<ellipse cx="590" cy="212" rx="540" ry="245" fill="url(#glow)"/>
+<g font-family="monospace">
+ <circle cx="42" cy="42" r="5" fill="#88ffae"/><circle cx="60" cy="42" r="5" fill="#396b48"/><circle cx="78" cy="42" r="5" fill="#274a33"/>
+ <text x="101" y="47" font-size="13" letter-spacing="2" fill="#78ab87">BGG / LOCAL ARCHIVE TERMINAL</text>
+ <text x="1155" y="47" font-size="13" text-anchor="end" fill="#88ffae">BUILD 0.1.1 // DEVICE TEST</text>
+ <path d="M35 63H1165 M35 369H1165" stroke="#285638"/>
+ <text x="64" y="115" font-size="15" letter-spacing="4" fill="#7cbc91">BACKGROUND GREMLIN GROUP PRESENTS</text>
+ <text x="58" y="200" font-size="82" font-weight="bold" letter-spacing="3" fill="#aaffbd">CLANK-CON</text>
+ <text x="64" y="246" font-size="27" font-weight="bold" fill="#e2ffea">PULL CHATS FROM CLANKS.</text>
+ <text x="64" y="285" font-size="18" fill="#83b995">Your conversations. Your archives. Your device.</text>
+ <text x="64" y="327" font-size="15" fill="#88ffae">[ 08 PROVIDER TARGETS ]   [ 07 EXPORT FORMATS ]   [ MIT ]</text>
+ <text x="40" y="398" font-size="14" fill="#9cdda9">DON'T TRUST US. AUDIT THE CODE.</text>
+ <text x="1157" y="398" font-size="14" text-anchor="end" fill="#78ab87">ANDROID / NATIVE JAVA / NO GRADLE</text>
+</g>
+<g transform="translate(850 77) scale(2.5)" stroke-linejoin="round" stroke-linecap="round">
+ <rect x="0" y="0" width="108" height="108" rx="9" fill="#07110b" stroke="#275e3c" stroke-width="1"/>
+ <path d="M8 8H100V100H8Z M12 16H96 M12 92H96" fill="none" stroke="#1c633c" stroke-width="1"/>
+ <path d="M25 25Q25 20 31 20H64Q70 20 70 26V48Q70 55 64 55H31Q25 55 25 48Z M32 61H64L72 82H24Z M18 30H25V45H18Z M70 30H77V45H70Z" fill="#173f2b" stroke="#88ffae" stroke-width="2.5"/>
+ <path d="M48 20V12 M43 47H53 M33 68L18 81 M64 65L79 76" fill="none" stroke="#88ffae" stroke-width="2.5"/>
+ <circle cx="48" cy="10" r="4" fill="#88ffae"/>
+ <path d="M33 32H40V39H33Z M55 32H62V39H55Z" fill="#88ffae"/>
+ <path d="M47 69L68 65L92 70L87 96L64 91L42 95Z M68 65L64 91" fill="#0e271a" stroke="#88ffae" stroke-width="2"/>
+ <path d="M49 77L62 75 M48 82L61 80 M71 73L85 76 M70 78L84 81 M69 83L83 86" fill="none" stroke="#4dba76" stroke-width="1.5"/>
+ <path d="M83 53L88 57L72 79L66 82L68 75Z" fill="#b9ffd0" stroke="#07110b"/>
+</g>
+<rect x="17" y="17" width="1166" height="406" rx="15" fill="url(#scan)"/>
+</svg>
